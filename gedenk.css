@@ -3,16 +3,3 @@ strong {
     font-weight: normal;
     color: #a32c28;
 }
-body {
-    background-image: url('texturepaper.png');
-}
-h1 {
-    background-image: url('leatherred.png');
-    color: rgb(255,204,0); /* gold */
-    font-family: Georgia, "Bitstream Charter", serif;
-}
-h2 {
-    font-family: Georgia, "Bitstream Charter", serif;
-    font-style: italic;
-    font-weight: normal;
-}
