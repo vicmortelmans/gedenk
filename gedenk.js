@@ -11,7 +11,4 @@ Webflow.push(function () {
             },500);
         }
     });
-    setTimeout(function() {
-        $('.slider').hide()
-    }, 0);
 });
