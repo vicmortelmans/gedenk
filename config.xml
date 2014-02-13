@@ -20,4 +20,6 @@
         Roman Liturgy
     </author>
     
+    <icon src="icon.png" />
+    
 </widget>
