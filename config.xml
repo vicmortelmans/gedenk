@@ -3,17 +3,17 @@
     
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "org.romanliturgy.gedenk"
-    version     = "1.0.0"
+    version     = "1.0.1"
     versionCode = "10" >
     
     <!-- versionCode is optional and Android only -->
     
     <preference name="phonegap-version" value="3.1.0" />
     
-    <name>Gedenk</name>
+    <name>Gebeden</name>
     
     <description>
-        Gebeden 
+        Katholieke gebeden 
     </description>
     
     <author href="http://www.romanliturgy.org/" email="pf@romanliturgy.org">
