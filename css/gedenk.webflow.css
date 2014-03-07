@@ -12,11 +12,10 @@ h1 {
   background-image: url('../images/leatherred%5B2%5D.png');
   font-family: Georgia, serif;
   color: #fc0;
-  font-size: 38px;
-  line-height: 44px;
+  font-size: 32px;
+  line-height: 38px;
   font-weight: 400;
   text-align: center;
-  text-transform: uppercase;
 }
 h2 {
   margin: 10px;
