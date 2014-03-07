@@ -3,3 +3,6 @@ strong {
     font-weight: normal;
     color: #a32c28;
 }
+.slide-arrow div {
+  display: none;
+}

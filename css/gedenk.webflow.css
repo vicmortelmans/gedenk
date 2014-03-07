@@ -80,9 +80,6 @@ p {
   padding-top: 0px;
   clear: both;
 }
-.slide-arrow {
-  width: 0px;
-}
 @media (max-width: 991px) {
 }
 @media (max-width: 767px) {

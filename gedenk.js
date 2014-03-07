@@ -7,7 +7,7 @@ Webflow.push(function () {
             $('.content').hide();
             $(this).parent().find('.content').slideDown();
             $('html, body').animate({
-                scrollTop: ($(this).offset().top)
+                scrollTop: ($(this).offset().top - 10)
             },500);
         }
     });
