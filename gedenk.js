@@ -11,4 +11,10 @@ Webflow.push(function () {
             },500);
         }
     });
-});
+    setTimeout(function() {
+        $('.content').each(function() {
+            $(this).slideUp();
+        });
+        //$('.content').hide()
+    }, 1000);
+ });
