@@ -13,6 +13,11 @@ Webflow.push(function () {
         }
     });
     $('.content').on('click', function() {
+        // workaround for webflow sliders not being aligned properly
+        // when being rendered while part of hidden content.
+        // after testing numberous workarounds, I found out that a
+        // window resize triggers proper realigning of the slider
+        // so this one ends up as most elegant.
         $(window).trigger('resize');
     });
     $('.content').hide();
