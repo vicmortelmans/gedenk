@@ -1,6 +1,5 @@
 var Webflow = Webflow || [];  
 Webflow.push(function () { 
-    var screenHeight = $(window).height();
     $('h1').on('click', function() {
         // find the h1 that is hiding (= for which the toc is shown)
         // hide the h2's in that h1
@@ -72,6 +71,7 @@ Webflow.push(function () {
         $(this).removeClass('listed').addClass('selected');
         var contentToShow = $(this).siblings('.content');
         var contentToShowHeight = contentToShow.get(0).scrollHeight;
+        var screenHeight = $(window).innerHeight();
         contentToShow.addClass('showing').animate({
             height: Math.max(contentToShowHeight, screenHeight) + "px"
         }, 0.96 * 1000);

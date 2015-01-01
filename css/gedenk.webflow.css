@@ -3,6 +3,7 @@ body {
   color: #333;
   font-size: 14px;
   line-height: 20px;
+  background-color: #F44336;
 }
 header {
   padding-left:16px;
@@ -12,8 +13,8 @@ header {
   overflow: hidden;
   font-weight: 400;
   text-align: left;
-  background-color: #00796B;
-  color: white;
+  background-color: #D32F2F;
+  color: #FFCDD2;
 }
 h1 {
   /* default = showing */
@@ -25,7 +26,7 @@ h1 {
   overflow: hidden;
   font-weight: 400;
   text-align: left;
-  background-color: #009688;
+  background-color: #F44336;
   color: white;
 }
 h1.init {
@@ -46,7 +47,7 @@ h2.listed {
 }
 h2.selected {
   background-color: white;
-  color: #212121;
+  color: #F44336;
   transition-property: background-color, color;
   transition-duration: 1s;
   -webkit-transition-property: background-color, color;
