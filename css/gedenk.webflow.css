@@ -85,7 +85,7 @@ h2.listed {
 }
 h2.selected {
   background-color: white;
-  color: #F44336;
+  color: #212121; /* was #F44336 */
   transition-property: background-color, color;
   transition-duration: 1s;
   -webkit-transition-property: background-color, color;
