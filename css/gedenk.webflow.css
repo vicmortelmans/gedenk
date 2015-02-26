@@ -15,6 +15,9 @@ header {
   text-align: left;
   background-color: #D32F2F;
   color: #FFCDD2;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
 }
 h1 {
   /* default = showing */
@@ -28,6 +31,29 @@ h1 {
   text-align: left;
   background-color: #F44336;
   color: white;
+  background-image: url(../images/achtergrond.png);
+  background-repeat: no-repeat;
+}
+.gemeenschappelijke-gebeden h1 {
+  background-position-y: 0px;
+}
+.drie-eenheid h1 {
+  background-position-y: -48px;
+}
+.aanbidding h1 {
+  background-position-y: -96px;
+}
+.heilige-geest h1 {
+  background-position-y: -144px;
+}
+.maria h1 {
+  background-position-y: -192px;
+}
+.voor-de-mis h1 {
+  background-position-y: -240px;
+}
+.na-de-mis h1 {
+  background-position-y: -282px;
 }
 h1.init {
   height: 48px;
@@ -103,6 +129,7 @@ p {
   margin-bottom: 5px;
   /*font-family: Georgia, serif;*/
   font-family: Roboto, Arial, sans-serif;
+  font-weight: 100;
   font-size: 16px;
   line-height: 20px;
 }
