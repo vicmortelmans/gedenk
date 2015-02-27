@@ -14,6 +14,8 @@ header {
   font-weight: 400;
   text-align: left;
   background-color: #D32F2F;
+  background-image: url(../images/achtergrond.png);
+  background-repeat: no-repeat;
   color: #FFCDD2;
   max-width: 940px;
   margin-left: auto;
@@ -26,10 +28,11 @@ header {
 }
 .ruimte.boven {
   height: 48px;
+  background-position-y: -48px;
 }
 .ruimte.beneden {
   height: 226px;
-  background-position-y: -384px;
+  background-position-y: -432px;
 }
 h1 {
   /* default = showing */
@@ -47,25 +50,25 @@ h1 {
   background-repeat: no-repeat;
 }
 .gemeenschappelijke-gebeden h1 {
-  background-position-y: -48px;
-}
-.drie-eenheid h1 {
   background-position-y: -96px;
 }
-.aanbidding h1 {
+.drie-eenheid h1 {
   background-position-y: -144px;
 }
-.heilige-geest h1 {
+.aanbidding h1 {
   background-position-y: -192px;
 }
-.maria h1 {
+.heilige-geest h1 {
   background-position-y: -240px;
 }
-.voor-de-mis h1 {
+.maria h1 {
   background-position-y: -288px;
 }
-.na-de-mis h1 {
+.voor-de-mis h1 {
   background-position-y: -336px;
+}
+.na-de-mis h1 {
+  background-position-y: -384px;
 }
 h1.init {
   height: 48px;
