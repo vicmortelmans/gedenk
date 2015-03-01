@@ -17,11 +17,12 @@ header {
   background-image: url(../images/achtergrond.png);
   background-repeat: no-repeat;
   color: #FFCDD2;
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
+}
+.item {
+  max-width: 100%;
 }
 .ruimte {
+  max-width: 100%;
   background-color: #D32F2F;
   background-image: url(../images/achtergrond.png);
   background-repeat: no-repeat;
