@@ -53,7 +53,7 @@ Webflow.push(function () {
         // change this h2 to selected
         // show the content
         // align to top of the screen
-        var scrollReference = $(this).offset().top + this.scrollHeight;
+        var scrollReference = $(this).offset().top /*+ this.scrollHeight*/;
         var scrollCorrection = 0;
         var selectedH2 = $(this).parents('.toc').find('h2.selected');
         if (selectedH2.length) {
@@ -81,6 +81,43 @@ Webflow.push(function () {
         /* h2 moves up because elements before h2 are hiding
          * the page scrolls up to h2's new position 
          * if the scrolling is faster than the moving, h2 appears to move down */
+    });
+    $('header').on('click', function() {
+        // find the h1 that is hiding (= for which the toc is shown)
+        // hide the h2's in that h1
+        // hide the contents in that h1
+        // show that h1
+        // align to top of the screen
+        var scrollReference = $(document).scrollTop();
+        var scrollCorrection = 0;
+        var hidingH1 = $('h1.hiding');
+        if (hidingH1.length) {
+            var before = $('h1').index(hidingH1) < $('h1').index(this);
+            var showingH2s = hidingH1.parent().find('h2.listed,h2.selected');
+            if (showingH2s.length) {
+                if (before) 
+                    showingH2s.each(function() {
+                        scrollCorrection -= this.scrollHeight;
+                    });
+                showingH2s.removeClass('listed').removeClass('selected').animate({
+                    height: 0
+                }, 0.96 * 1000);
+                var showingContent = hidingH1.parent().find('.content.showing');
+                if (showingContent.length) {
+                    if (before) scrollCorrection -= showingContent.height();
+                    showingContent.removeClass('showing').animate({
+                        height: 0
+                    }, 0.96 * 1000);
+                }
+            }
+            hidingH1.removeClass('hiding').animate({
+                height: "48px"
+            }, 0.96 * 1000);
+            if (before) scrollCorrection += hidingH1.height();
+        }
+        $('html, body').animate({
+            scrollTop: (Math.max(0, scrollReference + scrollCorrection))
+        }, 0.96 * 1000);
     });
     $('.content').on('click', function() {
         // workaround for webflow sliders not being aligned properly
