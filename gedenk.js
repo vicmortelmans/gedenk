@@ -1,5 +1,4 @@
-var Webflow = Webflow || [];  
-Webflow.push(function () { 
+$(function() {
     // define available background images
     var bgImages = [
         { file: 'images/01.jpg', w: 1536, h: 1024 },
@@ -69,6 +68,9 @@ Webflow.push(function () {
     $.each(bgOffsets, function(index, value) {
         $(value.q).css('background-position-y', value.y + 'px');    
     });  
+});
+var Webflow = Webflow || [];
+Webflow.push(function () { 
     $('h1').on('click', function() {
         // find the h1 that is hiding (= for which the toc is shown)
         // hide the h2's in that h1
