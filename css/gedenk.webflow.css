@@ -6,17 +6,16 @@ body {
   background-color: #D32F2F;
 }
 header {
-  padding-left:16px;
+  padding-left: 16px;
   font-family: 'Roboto Medium' !important;
-  font-size: 16px;
-  line-height: 48px;
+  font-size: 12pt;  /* css js */
+  line-height: 48px;  /* css js */
   overflow: hidden;
   font-weight: 400;
   text-align: left;
   background-color: #D32F2F;
-  background-image: url(../images/achtergrond.png);
   background-repeat: no-repeat;
-  color: #FFCDD2;
+  color: white;
 }
 .item {
   max-width: 100%;
@@ -24,55 +23,30 @@ header {
 .ruimte {
   max-width: 100%;
   background-color: #D32F2F;
-  background-image: url(../images/achtergrond.png);
   background-repeat: no-repeat;
 }
 .ruimte.boven {
-  height: 48px;
-  background-position-y: -48px;
+  height: 48px;  /* css js */
 }
 .ruimte.beneden {
-  height: 226px;
-  background-position-y: -432px;
+  height: 48px;   /* css js */
 }
 h1 {
   /* default = showing */
   position: relative;
   padding-left:16px;
   font-family: 'Roboto Medium' !important;
-  font-size: 16px;
-  line-height: 48px;
+  font-size: 12pt;  /* css js */
+  line-height: 48px;  /* css js */
   overflow: hidden;
   font-weight: 400;
   text-align: left;
   background-color: #D32F2F;
   color: white;
-  background-image: url(../images/achtergrond.png);
   background-repeat: no-repeat;
 }
-.gemeenschappelijke-gebeden h1 {
-  background-position-y: -96px;
-}
-.drie-eenheid h1 {
-  background-position-y: -144px;
-}
-.aanbidding h1 {
-  background-position-y: -192px;
-}
-.heilige-geest h1 {
-  background-position-y: -240px;
-}
-.maria h1 {
-  background-position-y: -288px;
-}
-.voor-de-mis h1 {
-  background-position-y: -336px;
-}
-.na-de-mis h1 {
-  background-position-y: -384px;
-}
 h1.init {
-  height: 48px;
+  height: 48px;  /* css js */
 }
 h1 span {
   position: absolute;
