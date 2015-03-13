@@ -1,5 +1,5 @@
 var rowH;
-$(window).ready(function() {
+$(document).ready(function() {
     // define available background images
     var bgImages = [
         { file: 'images/01.jpg', w: 1536, h: 1024 },
@@ -28,7 +28,7 @@ $(window).ready(function() {
         bodyH = 10 * rowH;
     }
     // calculate the fontsize
-    var fontS = 12 / 48 * rowH;
+    var fontS = 14 / 48 * rowH;
     // calculate the size and offset of the image
     var bgX = 0;
     var bgY = 0;
