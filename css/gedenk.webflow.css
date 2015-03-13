@@ -3,17 +3,17 @@ body {
   color: #333;
   font-size: 14px;
   line-height: 20px;
-  background-color: #D32F2F;
+  background: url(images/achtergrond.png);
 }
 header {
   padding-left: 16px;
   font-family: 'Roboto Medium' !important;
   font-size: 12pt;  /* css js */
+  height: 0px;   /* css js */
   line-height: 48px;  /* css js */
   overflow: hidden;
   font-weight: 400;
   text-align: left;
-  background-color: #D32F2F;
   background-repeat: no-repeat;
   color: white;
 }
@@ -22,14 +22,13 @@ header {
 }
 .ruimte {
   max-width: 100%;
-  background-color: #D32F2F;
   background-repeat: no-repeat;
 }
 .ruimte.boven {
-  height: 48px;  /* css js */
+  height: 0px;  /* css js */
 }
 .ruimte.beneden {
-  height: 48px;   /* css js */
+  height: 0px;   /* css js */
 }
 h1 {
   /* default = showing */
@@ -41,12 +40,11 @@ h1 {
   overflow: hidden;
   font-weight: 400;
   text-align: left;
-  background-color: #D32F2F;
   color: white;
   background-repeat: no-repeat;
 }
 h1.init {
-  height: 48px;  /* css js */
+  height: 0px;  /* css js */
 }
 h1 span {
   position: absolute;

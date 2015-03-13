@@ -1,4 +1,5 @@
-$(function() {
+var rowH;
+$(window).ready(function() {
     // define available background images
     var bgImages = [
         { file: 'images/01.jpg', w: 1536, h: 1024 },
@@ -21,7 +22,7 @@ $(function() {
     var bodyH = $('body').height();
     var bodyHorizontality = bodyW / bodyH;
     // calculate the row height (minimum 48)
-    var rowH = bodyH / 10;
+    rowH = bodyH / 10;
     if (rowH < 48) {
         rowH = 48;
         bodyH = 10 * rowH;
@@ -45,7 +46,7 @@ $(function() {
         var bgSize = bgW + 'px' + ' ' + bgH;
     }
     // set the rows with the row height and fontsize
-    $('.ruimte,h1.init').css('height', rowH + 'px');
+    $('header,.ruimte,h1.init').css('height', rowH + 'px');
     $('header,h1').css('line-height', rowH + 'px').css('font-size', fontS + 'pt');
     // set the background image
     $('header,.ruimte,h1')
