@@ -50,6 +50,7 @@ $(document).ready(function() {
     $('header,h1').css('line-height', rowH + 'px').css('font-size', fontS + 'pt');
     // set the background image
     $('header,.ruimte,h1')
+        .css('background', '#607D8B')
         .css('background-image', 'url(' + bgImage.file + ')')
         .css('background-size', bgSize)
         .css('background-position-x', bgX + 'px');
