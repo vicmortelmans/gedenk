@@ -154,6 +154,10 @@ footer {
 footer div {
   margin: 16px;
 }
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
 @media (max-width: 991px) {
 }
 @media (max-width: 767px) {
