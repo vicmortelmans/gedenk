@@ -1,3 +1,4 @@
+var isPhoneGapApp = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 var rowH;
 $(document).ready(function() {
     // define available background images
@@ -69,7 +70,10 @@ $(document).ready(function() {
     ];
     $.each(bgOffsets, function(index, value) {
         $(value.q).css('background-position-y', value.y + 'px');    
-    });  
+    });
+    if (!isPhoneGapApp) {
+        $('footer').show();
+    }
 });
 var Webflow = Webflow || [];
 Webflow.push(function () { 

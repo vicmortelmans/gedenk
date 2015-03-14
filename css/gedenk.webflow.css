@@ -145,6 +145,15 @@ p {
   padding-top: 0px;
   clear: both;
 }
+footer {
+  display: none;
+  background-color: #607D8B;
+  color: white;
+  padding: 16px 0 16px 0;
+}
+footer div {
+  margin: 16px;
+}
 @media (max-width: 991px) {
 }
 @media (max-width: 767px) {
