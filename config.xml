@@ -7,8 +7,11 @@
     versionCode = "12" >
     
     <!-- versionCode is optional and Android only -->
-    
     <preference name="phonegap-version" value="3.6.3" />
+    
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <gap:splash src="splash.png" width="480" height="800" />
     
     <name>Gebeden</name>
     
@@ -21,8 +24,6 @@
     </author>
     
     <icon src="icon.png" />
-    <gap:splash src="splash.png" width="480" height="800" />
-    
     
     <feature name="http://api.phonegap.com/1.0/device"/>
     

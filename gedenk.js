@@ -73,6 +73,10 @@ $(document).ready(function() {
     });
     if (!isPhoneGapApp) {
         $('footer').show();
+    } else {
+        if (navigator && navigator.splashscreen) {
+      		navigator.splashscreen.hide();
+      	}
     }
 });
 var Webflow = Webflow || [];
