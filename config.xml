@@ -3,14 +3,15 @@
     
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "net.gelovenleren.gebeden"
-    version     = "2.0.3"
+    version     = "2.0.4"
     versionCode = "12" >
     
     <!-- versionCode is optional and Android only -->
     <preference name="phonegap-version" value="3.6.3" />
     
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000"/>
     <gap:splash src="splash.png" width="480" height="800" />
     
     <name>Gebeden</name>
