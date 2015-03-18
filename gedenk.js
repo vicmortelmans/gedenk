@@ -77,7 +77,9 @@ $(document).ready(function() {
     } else {
         // something to do only on app
         document.addEventListener("deviceready", function(){
-      		navigator.splashscreen.hide();
+            setTimeout(function() {
+                navigator.splashscreen.hide();
+            }, 100);
         }, false);
     }
 });
