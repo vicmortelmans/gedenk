@@ -72,11 +72,13 @@ $(document).ready(function() {
         $(value.q).css('background-position-y', value.y + 'px');    
     });
     if (!isPhoneGapApp) {
+        // something to do only on web
         $('footer').show();
     } else {
-        if (navigator && navigator.splashscreen) {
+        // something to do only on app
+        document.addEventListener("deviceready", function(){
       		navigator.splashscreen.hide();
-      	}
+        }, false);
     }
 });
 var Webflow = Webflow || [];
