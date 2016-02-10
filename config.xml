@@ -3,10 +3,8 @@
     
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "net.gelovenleren.gebeden"
-    version     = "2.1.0"
-    versionCode = "12" >
+    version     = "2.1.0" >
     
-    <!-- versionCode is optional and Android only -->
     <!--preference name="phonegap-version" value="3.6.3" /-->
     
     <gap:plugin name="org.apache.cordova.splashscreen" />
