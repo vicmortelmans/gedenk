@@ -3,7 +3,7 @@
     
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "net.gelovenleren.gebeden"
-    version     = "2.1.0" >
+    version     = "3.0.0" >
     
     <!--preference name="phonegap-version" value="3.6.3" /-->
     

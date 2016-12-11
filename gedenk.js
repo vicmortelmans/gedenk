@@ -13,7 +13,10 @@ $(document).ready(function() {
         { file: 'images/08.jpg', w: 1542, h: 1024 },
         { file: 'images/09.jpg', w: 1280, h: 850 },
         { file: 'images/10.jpg', w: 1541, h: 1024 },
-        { file: 'images/11.jpg', w: 1536, h: 1024 }
+        { file: 'images/11.jpg', w: 1536, h: 1024 },
+        { file: 'images/12.jpg', w: 672, h: 448 },
+        { file: 'images/13.jpg', w: 1280, h: 960 },
+        { file: 'images/14.jpg', w: 1341, h: 1159 }
     ];
     // pick one randomly
     var bgImage = bgImages[Math.floor(Math.random() * bgImages.length)];
@@ -23,7 +26,7 @@ $(document).ready(function() {
     var bodyH = $('body').height();
     var bodyHorizontality = bodyW / bodyH;
     // calculate the row height (minimum 48)
-    rowH = bodyH / 10;
+    rowH = bodyH / 11;
     if (rowH < 48) {
         rowH = 48;
         bodyH = 10 * rowH;
@@ -59,14 +62,15 @@ $(document).ready(function() {
     var bgOffsets = [
         { q: 'header', y: bgY },
         { q: '.ruimte.boven', y: bgY - rowH },
-        { q: '.gemeenschappelijke-gebeden h1', y: bgY - 2*rowH },
-        { q: '.drie-eenheid h1', y: bgY - 3*rowH },
-        { q: '.aanbidding h1', y: bgY - 4*rowH },
-        { q: '.heilige-geest h1', y: bgY - 5*rowH },
-        { q: '.maria h1', y: bgY - 6*rowH },
-        { q: '.voor-de-mis h1', y: bgY - 7*rowH },
-        { q: '.na-de-mis h1', y: bgY - 8*rowH },
-        { q: '.ruimte.beneden', y: bgY - 9*rowH }
+        { q: '.gregoriaanse-liederen h1', y: bgY - 2*rowH },
+        { q: '.gemeenschappelijke-gebeden h1', y: bgY - 3*rowH },
+        { q: '.drie-eenheid h1', y: bgY - 4*rowH },
+        { q: '.aanbidding h1', y: bgY - 5*rowH },
+        { q: '.heilige-geest h1', y: bgY - 6*rowH },
+        { q: '.maria h1', y: bgY - 7*rowH },
+        { q: '.voor-de-mis h1', y: bgY - 8*rowH },
+        { q: '.na-de-mis h1', y: bgY - 9*rowH },
+        { q: '.ruimte.beneden', y: bgY - 10*rowH }
     ];
     $.each(bgOffsets, function(index, value) {
         $(value.q).css('background-position-y', value.y + 'px');    
@@ -93,7 +97,8 @@ Webflow.push(function () {
         // align to top of the screen
         var scrollReference = $(document).scrollTop();
         var scrollCorrection = 0;
-        var hidingH1 = $('h1.hiding');
+        var hidingH1 = $('h1.selected');
+        var onlyCollapse = $(this).hasClass('selected');
         if (hidingH1.length) {
             var before = $('h1').index(hidingH1) < $('h1').index(this);
             var showingH2s = hidingH1.parent().find('h2.listed,h2.selected');
@@ -113,32 +118,32 @@ Webflow.push(function () {
                     }, 0.96 * 1000);
                 }
             }
-            hidingH1.removeClass('hiding').animate({
-                height: rowH + "px"
-            }, 0.96 * 1000);
+            hidingH1.removeClass('selected')
             if (before) scrollCorrection += hidingH1.height();
         }
-        $(this).addClass('hiding').animate({
-            height: 0
-        }, 0.96 * 1000);
-        var contentToShow = $(this).parent().find('h2');
-        contentToShow.addClass('listed').animate({
-            height: "48px"
-        }, 0.96 * 1000);
-        $('html, body').animate({
-            scrollTop: (Math.max(0, scrollReference + scrollCorrection))
-        }, 0.96 * 1000);
+        if (!onlyCollapse) {
+          $(this).addClass('selected');
+          var contentToShow = $(this).parent().find('h2');
+          contentToShow.addClass('listed').animate({
+              height: "48px"
+          }, 0.96 * 1000);
+          $('html, body').animate({
+              scrollTop: (Math.max(0, scrollReference + scrollCorrection))
+          }, 0.96 * 1000);
+        }
     });
-    $('h2:not(".selected")').on('click', function() {
+    $('h2').on('click', function() {
         // find the h2 that is selected
         // hide the content in that h2
         // change that h2 to listed
+        // only do the following if the clicked h2 was not the selected one
         // change this h2 to selected
         // show the content
         // align to top of the screen
         var scrollReference = $(this).offset().top /*+ this.scrollHeight*/;
         var scrollCorrection = 0;
         var selectedH2 = $(this).parents('.toc').find('h2.selected');
+        var onlyCollapse = $(this).hasClass('selected');
         if (selectedH2.length) {
             var before = $('h2').index(selectedH2) < $('h2').index(this);
             var contentToHide = selectedH2.siblings('.content');
@@ -149,18 +154,19 @@ Webflow.push(function () {
                 }, 0.96 * 1000); 
             }
             selectedH2.removeClass('selected').addClass('listed');
-/*            if (before) scrollCorrection -= hidingH2.get(0).scrollHeight;*/
         }
-        $(this).removeClass('listed').addClass('selected');
-        var contentToShow = $(this).siblings('.content');
-        var contentToShowHeight = contentToShow.get(0).scrollHeight;
-        var screenHeight = $(window).innerHeight();
-        contentToShow.addClass('showing').animate({
-            height: Math.max(contentToShowHeight, screenHeight) + "px"
-        }, 0.96 * 1000);
-        $('html, body').animate({
-            scrollTop: (scrollReference + scrollCorrection)
-        }, 0.96 * 1000);
+        if (!onlyCollapse) {
+          $(this).removeClass('listed').addClass('selected');
+          var contentToShow = $(this).siblings('.content');
+          var contentToShowHeight = contentToShow.get(0).scrollHeight;
+          var screenHeight = $(window).innerHeight();
+          contentToShow.addClass('showing').animate({
+              height: Math.max(contentToShowHeight, screenHeight) + "px"
+          }, 0.96 * 1000);
+          $('html, body').animate({
+              scrollTop: (scrollReference + scrollCorrection)
+          }, 0.96 * 1000);
+        }
         /* h2 moves up because elements before h2 are hiding
          * the page scrolls up to h2's new position 
          * if the scrolling is faster than the moving, h2 appears to move down */
@@ -173,7 +179,7 @@ Webflow.push(function () {
         // align to top of the screen
         var scrollReference = $(document).scrollTop();
         var scrollCorrection = 0;
-        var hidingH1 = $('h1.hiding');
+        var hidingH1 = $('h1.selected');
         if (hidingH1.length) {
             var before = $('h1').index(hidingH1) < $('h1').index(this);
             var showingH2s = hidingH1.parent().find('h2.listed,h2.selected');
@@ -193,7 +199,7 @@ Webflow.push(function () {
                     }, 0.96 * 1000);
                 }
             }
-            hidingH1.removeClass('hiding').animate({
+            hidingH1.removeClass('selected').animate({
                 height: rowH + "px"
             }, 0.96 * 1000);
             if (before) scrollCorrection += hidingH1.height();
