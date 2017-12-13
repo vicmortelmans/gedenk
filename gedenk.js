@@ -62,14 +62,14 @@ $(document).ready(function() {
     var bgOffsets = [
         { q: 'header', y: bgY },
         { q: '.ruimte.boven', y: bgY - rowH },
-        { q: '.gregoriaanse-liederen h1', y: bgY - 2*rowH },
-        { q: '.gemeenschappelijke-gebeden h1', y: bgY - 3*rowH },
-        { q: '.drie-eenheid h1', y: bgY - 4*rowH },
-        { q: '.aanbidding h1', y: bgY - 5*rowH },
-        { q: '.heilige-geest h1', y: bgY - 6*rowH },
-        { q: '.maria h1', y: bgY - 7*rowH },
-        { q: '.voor-de-mis h1', y: bgY - 8*rowH },
-        { q: '.na-de-mis h1', y: bgY - 9*rowH },
+        { q: '#gregoriaanse-liederen h1', y: bgY - 2*rowH },
+        { q: '#gemeenschappelijke-gebeden h1', y: bgY - 3*rowH },
+        { q: '#drie-eenheid h1', y: bgY - 4*rowH },
+        { q: '#aanbidding h1', y: bgY - 5*rowH },
+        { q: '#heilige-geest h1', y: bgY - 6*rowH },
+        { q: '#maria h1', y: bgY - 7*rowH },
+        { q: '#voor-de-mis h1', y: bgY - 8*rowH },
+        { q: '#na-de-mis h1', y: bgY - 9*rowH },
         { q: '.ruimte.beneden', y: bgY - 10*rowH }
     ];
     $.each(bgOffsets, function(index, value) {
@@ -131,6 +131,7 @@ Webflow.push(function () {
               scrollTop: (Math.max(0, scrollReference + scrollCorrection))
           }, 0.96 * 1000);
         }
+        window.location.hash = "";
     });
     $('h2').on('click', function() {
         // find the h2 that is selected
@@ -167,6 +168,7 @@ Webflow.push(function () {
               scrollTop: (scrollReference + scrollCorrection)
           }, 0.96 * 1000);
         }
+        window.location.hash = $(this).parent().attr('id');
         /* h2 moves up because elements before h2 are hiding
          * the page scrolls up to h2's new position 
          * if the scrolling is faster than the moving, h2 appears to move down */
@@ -207,6 +209,7 @@ Webflow.push(function () {
         $('html, body').animate({
             scrollTop: (Math.max(0, scrollReference + scrollCorrection))
         }, 0.96 * 1000);
+        window.location.hash = "";
     });
     $('.content').on('click', function() {
         // workaround for webflow sliders not being aligned properly
@@ -216,5 +219,40 @@ Webflow.push(function () {
         // so this one ends up as most elegant.
         $(window).trigger('resize');
     });
+    var preset = window.location.hash;
+    if (preset) {
+      var presetDiv = $('div' + preset);
+      var presetDivH2 = presetDiv.find('h2');
+      var presetDivH1 = presetDiv.parents().children('h1');
+      if (presetDivH2.length) {
+        presetDivH1.click();
+        window.setTimeout(function() {
+          presetDivH2.click();
+        }, 1000);
+      }
+    }
+    /* ** Web Share API only active on https sites **
+    if (navigator.share) {
+      $('#share').on('click', function() {
+        var anchor = window.location.hash;
+        if (anchor) {
+          var title = $('div' + anchor).children('h2').text();
+          var text = $('div' + anchor).children('div.content').find('p').first().text();
+        } else {
+          var title = "Katholieke Gebeden";
+          var text = "Traditionele gebeden en gregoriaanse liederen, ook speciaal voor of na de mis.";
+        }
+        navigator.share({
+            title: title,
+            text: text,
+            url: document.location.href
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+      });
+    } else {
+      $('#share').hide();
+    }
+    */
 //    $('.content').hide();
 });
